@@ -1,0 +1,97 @@
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  width: 50%;
+  margin: 0 auto; 
+  color: white;
+  border-radius: 10px;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}  
+
+h4 {
+    text-align: center;
+} 
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 500px; /* Adjust the maximum width of the container */
+}
+
+.fields {
+    width: calc(50% - 10px); /* Set each field to be 50% of the container width with some spacing */
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+}
+
+.btn {
+    display: block; /* Ensures the button is a block-level element */
+    margin: 0 auto; /* Center horizontally */
+    background-color: #068053; /* Set initial background color */
+    color: white; /* Set initial text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: 1px solid #000; /* Add a border */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    border-radius: 5px;
+  
+    /* You can add other styles like font-size, border-radius, etc. */
+  }
+  
+  .btn:hover {
+    background-color: #0073e6; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+  }
+  
+  .password-container {
+    background-color: rgba(169, 169, 169, 0.5); /* Gray background with 50% transparency */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative; /* To position the copy button relative to this container */
+  
+    /* Center the password text vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .copy-button {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    background-color: #068053;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .copy-button:hover {
+    background-color: #0073e6;
+    color: #fff;
+  }
+
+  .copy-button.clicked {
+    background-color: #0073e6;
+    color: #fff;
+    /* cursor: not-allowed; Optionally, disable the button after clicking */
+  }
+  

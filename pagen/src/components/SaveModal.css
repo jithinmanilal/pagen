@@ -1,0 +1,72 @@
+/* Equivalent CSS for Tailwind CSS classes */
+#wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    padding: 2rem;
+    backdrop-filter: blur(5px); /* For backdrop blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* The following CSS sets a maximum width of 600px */
+  #wrapper .w-600 {
+    max-width: 600px;
+  }
+  
+  /* The following CSS styles are not present in the Tailwind CSS code but are assumed for the layout */
+  #wrapper .flex {
+    display: flex;
+  }
+  
+  #wrapper .flex.flex-col {
+    flex-direction: column;
+  }
+
+  .container-mod {
+    padding: 16px;
+    margin: 25px; 
+    color: white;
+    border-radius: 10px;
+  }
+
+ /* CSS for "X" button */
+.top-right-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    /* Add more styles as desired */
+  }
+  
+  /* CSS for modal content */
+  .modal-content {
+    background-color: white; /* Set the background color of the modal content */
+    border-radius: 5px;
+    position: relative; /* To make "X" button position relative to the modal */
+    max-width: 80%; /* Adjust as needed */
+    margin: 0 auto; /* Center the modal content horizontally */
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .submit-button {
+    /* Add styles for the submit button if needed */
+  }
+  
+  /* Additional styles for the modal content can be added as necessary */
+  
+  
