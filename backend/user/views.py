@@ -47,31 +47,37 @@ class GenerateRandomPassword(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
-        data = request.data
-        p_length = int(data['p_length'])
-        cap_length = int(data['cap_length'])
-        num_length = int(data['num_length'])
-        schar_length = int(data['schar_length'])
-        
-        if p_length < cap_length + num_length + schar_length:
-            return Response({"error": "Invalid password configuration"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        l_length = p_length - (cap_length + num_length + schar_length)
-        
-        s1 = string.ascii_lowercase
-        s2 = string.ascii_uppercase
-        s3 = string.digits
-        s4 = string.punctuation
-        
-        s1 = ''.join(random.sample(s1, l_length))
-        s2 = ''.join(random.sample(s2, cap_length))
-        s3 = ''.join(random.sample(s3, num_length))
-        s4 = ''.join(random.sample(s4, schar_length))
-        
-        password = s1 + s2 + s3 + s4
-        password = ''.join(random.sample(password, len(password)))
-        
-        return Response({"password": password})
+        try:
+            data = request.data
+            p_length = int(data['p_length'])
+            cap_length = int(data['cap_length'])
+            num_length = int(data['num_length'])
+            schar_length = int(data['schar_length'])
+
+            if p_length < cap_length + num_length + schar_length:
+                return Response({"error": "Invalid password configuration"}, status=status.HTTP_400_BAD_REQUEST)
+            elif p_length < 8 or p_length > 36:
+                return Response({"error": "Password length must be between 8 and 36 characters."}, status=status.HTTP_400_BAD_REQUEST)
+
+            l_length = p_length - (cap_length + num_length + schar_length)
+
+            s1 = string.ascii_lowercase
+            s2 = string.ascii_uppercase
+            s3 = string.digits
+            s4 = string.punctuation
+
+            s1 = ''.join(random.sample(s1, l_length))
+            s2 = ''.join(random.sample(s2, cap_length))
+            s3 = ''.join(random.sample(s3, num_length))
+            s4 = ''.join(random.sample(s4, schar_length))
+
+            password = s1 + s2 + s3 + s4
+            password = ''.join(random.sample(password, len(password)))
+
+            return Response({"password": password}, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            # Handle any unexpected exceptions
+            return Response({"error": "An error occurred while generating the password."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class SavePasswordView(generics.ListCreateAPIView):

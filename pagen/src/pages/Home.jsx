@@ -36,7 +36,7 @@ const Home = () => {
         },
       })
       .then((response) => {
-        if (response.status === 200) {
+        if (response.status === 201) {
           // Registration successful
           console.log('User registered successfully');
           const data = response.data
